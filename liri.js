@@ -1,7 +1,8 @@
 require("dotenv").config();
 
 // add code to require keys.js and save as a variable
-require("keys.js").config();
+var Keys = require("./keys.js");
+
 
 // Sample Twitter code
 
@@ -32,6 +33,8 @@ client.post('statuses/update', {status: 'I Love Twitter'},  function(error, twee
     console.log(response);  // Raw response object. 
   });
 
+
+  
 // access your keys like this with "new" equal to variable name above
 var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter);
@@ -45,3 +48,25 @@ var client = new Twitter(keys.twitter);
 // movie-this
 
 // do-what-it-says
+
+// Spotify
+var spotify = require('spotify');
+ 
+spotify.search({ type: 'track', query: 'dancing in the moonlight' }, function(err, data) {
+    if ( err ) {
+        console.log('Error occurred: ' + err);
+        return;
+    }
+ 
+    // Do something with 'data' 
+});
+
+// lookup: 
+// function({ type: 'artist OR album OR track', id: 'Spotify ID Hash' }, hollaback);
+
+// search: 
+// function({ type: 'artist OR album OR track', query: 'My search query' }, hollaback);
+
+// get: 
+// function(query, hollaback) 
+// See http://developer.spotify.com/en/metadata-api/overview/; 
